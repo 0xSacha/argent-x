@@ -10,3 +10,11 @@ try {
 } catch {
   // do nothing
 }
+
+global.chrome = {
+  ...global.chrome,
+  runtime: {
+    ...(global.chrome?.runtime ?? {}),
+    id: "testid",
+  },
+}

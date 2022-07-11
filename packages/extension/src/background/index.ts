@@ -81,6 +81,8 @@ import { Wallet, WalletStorageProps } from "./wallet"
   ] as Array<HandleMessage<MessageType>>
 
   messageStream.subscribe(async ([msg, sender]) => {
+    console.log(msg)
+
     const sendToTabAndUi = async (msg: MessageType) => {
       sendMessageToActiveTabsAndUi(msg, [sender.tab?.id])
     }
