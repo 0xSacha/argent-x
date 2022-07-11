@@ -28,9 +28,15 @@ const proxyCompiledContract = fs.readFileSync(
   "utf8",
 )
 
+const MgtyAccountCompiledContractUrl = fs.readFileSync(
+  path.join(__dirname, "../src/contracts/MgtyAccount.txt"),
+  "utf8",
+)
+
 const loadContracts: LoadContracts = async () => [
   proxyCompiledContract,
   argentAccountCompiledContract,
+  MgtyAccountCompiledContractUrl,
 ]
 
 const REGEX_HEXSTRING = /^0x[a-fA-F0-9]+/i

@@ -507,17 +507,19 @@ export class Wallet {
     )
     const starkPub = ec.getStarkKey(starkPair)
     const [proxyCompiledContract] = await this.loadContracts(baseDerivationPath)
+    const [, , MgtyAccountCompiledContractUrl] = await this.loadContracts(
+      baseDerivationPath,
+    )
 
     const provider = getProvider(network)
 
     const accountClassHash = await this.getAccountClassHashForNetwork(network)
 
     const deployTransaction = await provider.deployContract({
-      contract: proxyCompiledContract,
+      contract: MgtyAccountCompiledContractUrl,
       constructorCalldata: stark.compileCalldata({
-        implementation: accountClassHash,
-        selector: getSelectorFromName("initialize"),
-        calldata: stark.compileCalldata({ signer: starkPub, guardian: "0" }),
+        public_key: starkPub,
+        vaultFactory: "787638826",
       }),
       addressSalt: starkPub,
     })
