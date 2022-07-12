@@ -122,7 +122,7 @@ export const AccountTokens: FC<AccountTokensProps> = ({ account }) => {
           setAccountName(account.networkId, account.address, name)
         }
       />
-      <TransferButtons />
+      {/* <TransferButtons /> */}
       {isDeprecated(account) && <MigrationBanner />}
       {showBackupBanner && <RecoveryBanner />}
       {showUpgradeBanner && (
