@@ -37,12 +37,12 @@ const LockScreenWrapper = styled.div`
 `
 
 export const greetings = [
-  "gm!",
-  "Hello!",
-  "Guten Tag!",
-  "Привет!",
-  "gm, ser!",
-  "hi fren",
+  "To Neptune!",
+  "LFG!",
+  "Bullish!",
+  "WAGMI!",
+  "GM!",
+  "YouEarly",
 ]
 
 const isPopup = new URLSearchParams(window.location.search).has("popup")
@@ -54,7 +54,7 @@ export const LockScreen: FC = () => {
     <LockScreenWrapper>
       <LogoSvg />
       <Greetings greetings={greetings} />
-      <P>Unlock your wallet to continue.</P>
+      <P>Unlock your Fund to continue.</P>
 
       <PasswordForm
         verifyPassword={async (password) => {
